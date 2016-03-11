@@ -1,10 +1,6 @@
 # Multi Threaded Files Downloader
 
-[![NPM](https://nodei.co/npm/mt-files-downloader.png)](https://nodei.co/npm/mt-files-downloader/)
-
-**NOT VERY STABLE**: This module is not very stable, and is in need of a big refactor to work with the latest `mt-downloader` version. I will try to do this when I have the time, but unfotrunately other projects are taking a lot of time from me right now. Thanks for your understanding.
-
-This module wrap the [mt-downloader](https://www.npmjs.com/package/mt-downloader) module and let you :
+This module wrap the [zeltice-mt-downloader](https://www.npmjs.com/package/zeltice-mt-downloader) module and let you :
 
 - Manage multiple downloads
 - Get stats (speed, eta, completed, etc)
@@ -15,25 +11,25 @@ This module wrap the [mt-downloader](https://www.npmjs.com/package/mt-downloader
 
 ## Install
 
-	npm install mt-files-downloader
+    npm install mt-files-downloader
 
 ## Usage
 
 Require the module :
 
-	var Downloader = require('mt-files-downloader');
+    var Downloader = require('mt-files-downloader');
 
 Create a new Downloader instance :
 
-	var downloader = new Downloader();
+    var downloader = new Downloader();
 
 Create a new download :
 
-	var dl = downloader.download('FILE_URL', 'FILE_SAVE_PATH');
+    var dl = downloader.download('FILE_URL', 'FILE_SAVE_PATH');
 
 Start the download :
 
-	dl.start();
+    dl.start();
 
 ## Examples
 
@@ -62,9 +58,9 @@ You can then listen to those events :
 ### Methods
 
 - download(URL, FILE_SAVE_PATH, [options])
-    - URL : URL of the file to download
-    - FILE_SAVE_PATH : where to save the file (including filename !)
-    - options : optional, passed directly to Download object
+  - URL : URL of the file to download
+  - FILE_SAVE_PATH : where to save the file (including filename !)
+  - options : optional, passed directly to Download object
 - resumeDownload(filePath) : create a new download by resuming from an existing file
 - getDownloads() : get the list of downloads in manager
 - getDownloadByUrl(url) : get a specified download by URL
@@ -83,14 +79,14 @@ The Downloader object exposes some formatters for the stats as static methods :
 
 ### Properties
 
-- status : 
-    - -3 = destroyed
-    - -2 = stopped
-    - -1 = error
-    - 0 = not started
-    - 1 = started (downloading)
-    - 2 = error, retrying
-    - 3 = finished
+- status :
+  - -3 = destroyed
+  - -2 = stopped
+  - -1 = error
+  - 0 = not started
+  - 1 = started (downloading)
+  - 2 = error, retrying
+  - 3 = finished
 - url
 - filePath
 - options
@@ -101,14 +97,14 @@ The Downloader object exposes some formatters for the stats as static methods :
 - setUrl(url) : set the download URL
 - setFilePath(path) : set the download file save path
 - setOptions(options) : set the download options
-    - threadsCount: Default: 2, Set the total number of download threads
-    - method: Default: GET, HTTP method
-    - port: Default: 80, HTTP port
-    - timeout: Default: 5000, If no data is received, the download times out (milliseconds)
-    - range: Default: 0-100, Control the part of file that needs to be downloaded.
+  - threadsCount: Default: 2, Set the total number of download threads
+  - method: Default: GET, HTTP method
+  - port: Default: 80, HTTP port
+  - timeout: Default: 5000, If no data is received, the download times out (milliseconds)
+  - range: Default: 0-100, Control the part of file that needs to be downloaded.
 - setRetryOptions(options) : set the retry options
-    - maxRetries: Default 5, max number of retries before considering the download as failed
-    - retryInterval: Default 2000, interval (milliseconds) between each retry
+  - maxRetries: Default 5, max number of retries before considering the download as failed
+  - retryInterval: Default 2000, interval (milliseconds) between each retry
 - setMeta(meta) : set download metadata
 - setStatus(status) : set download status
 - setError(error) : set error message for download
